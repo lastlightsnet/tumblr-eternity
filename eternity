@@ -3,7 +3,7 @@ Theme Name: Eternity
 Author: Joey J
 Author URI: http://lastlights.net/
 Description: Eternity is a single column, clean and minimal, Retina display ready, responsive Tumblr theme elegantly handcrafted for photographers and artists showcasing their best work.
-Version: 1.41
+Version: 1.42
 Credits: jQuery (MIT license), fancyBox (GPLv3 license, open-sourced on GitHub @lastlightsnet), PXU Photoset Extended (MIT license), Zack Sultan for media resizing scripts, Font Awesome (SIL open font license), Google Fonts (SIL open font license)
 -->
 <html>
@@ -227,9 +227,11 @@ h1.post_title:after {background-color: #7cc576; border-radius: 30px; box-shadow:
 
 .videoWrapper iframe.flickr-embed-frame, .videoWrapper img {height: auto; max-width: 100%; position: relative; width: 100%;}
 
-.audio iframe {max-width: 100%;}
+.tumblr_audio_player {max-width: 100%;}
 
-.soundcloud_audio_player, .spotify_audio_player {height: 100%; width: 100%;}
+.soundcloud_audio_player {height: 100%; width: 100%;}
+
+.spotify_audio_player {height: 80px; width: 100%;}
 
 blockquote {border-left: 3px solid #bbb; margin-left: 10px; padding-left: 10px; word-wrap: break-word;}
 
@@ -316,8 +318,6 @@ html, body {overflow-x: hidden !important; width: auto !important;}
 
 .tmblr-full {margin-left: -5px; margin-right: -5px;}
 
-.tumblr_audio_player {max-width: 100%;}
-
 .videoWrapper img {min-width: 100%;}
 
 /* NPF TWEAKS */
@@ -329,7 +329,7 @@ div.npf_row {margin-left: -5px !important; margin-right: -5px !important;}
 
 <body>
 <div id="container">
-<a href="#" class="back_to_top"><i class="fa fa-2x fa-angle-up"></i></a>
+<a href="#" class="back_to_top"><i class="fa fa-2x fa-angle-up"></i><!-- .fa fa-2x fa-angle-up --></a><!-- .back_to_top -->
 
 <!-- LOGO -->
 <div class="header">
@@ -339,7 +339,7 @@ div.npf_row {margin-left: -5px !important; margin-right: -5px !important;}
 
 <!-- TITLE -->
 {block:ShowTitle}
-<div class="blog_title"><p><a href="/">{Title}</a></p></div>
+<div class="blog_title"><p><a href="/">{Title}</a></p></div><!-- .blog_title -->
 {/block:ShowTitle}
 
 <!-- SOCIAL LINKS -->
@@ -347,18 +347,18 @@ div.npf_row {margin-left: -5px !important; margin-right: -5px !important;}
 
 <!-- NAV -->
 {block:IfShowNavigation}
-<div class="menu"><p><a href="/">HOME</a><a href="#" id="slick-toggle">ABOUT</a>{block:AskEnabled}<a href="/ask">{AskLabel}</a>{/block:AskEnabled}{block:SubmissionsEnabled}<a href="/submit">{SubmitLabel}</a>{/block:SubmissionsEnabled}{block:HasPages}{block:Pages}<a href="{URL}">{Label}</a>{/block:Pages}{/block:HasPages}</p></div><!-- .menu --><div id="slickbox"><p>{Description}</p><form action="/search" method="get" style="text-align: right;"><input type="text" name="q" value="{SearchQuery}" class="searchform"><input type="submit" value="Search" style="margin-left: 5px;"></form></div><!-- #slickbox -->
+<div class="menu"><p><a href="/">HOME</a><a href="#" id="slick-toggle">ABOUT</a><!-- #slick-toggle -->{block:AskEnabled}<a href="/ask">{AskLabel}</a>{/block:AskEnabled}{block:SubmissionsEnabled}<a href="/submit">{SubmitLabel}</a>{/block:SubmissionsEnabled}{block:HasPages}{block:Pages}<a href="{URL}">{Label}</a>{/block:Pages}{/block:HasPages}</p></div><!-- .menu --><div id="slickbox"><p>{Description}</p><form action="/search" method="get" style="text-align: right;"><input type="text" name="q" value="{SearchQuery}" class="searchform"><input type="submit" value="Search" style="margin-left: 5px;"></form></div><!-- #slickbox -->
 {/block:IfShowNavigation}
 </div><!-- .header -->
 
 <!-- TAG PAGE -->
 {block:TagPage}
-<div class="post caption_padding"><h1 class="post_title">Showing Posts Tagged with &ldquo;{Tag}&rdquo;</h1></div><!-- .post caption_padding -->
+<div class="post caption_padding"><h1 class="post_title">Showing Posts Tagged with &ldquo;{Tag}&rdquo;</h1><!-- .post_title --></div><!-- .post caption_padding -->
 {/block:TagPage}
 
 <!-- SEARCH PAGE -->
 {block:SearchPage}
-<div class="post caption_padding"><h1 class="post_title">Search Results for &ldquo;{SearchQuery}&rdquo;</h1>
+<div class="post caption_padding"><h1 class="post_title">Search Results for &ldquo;{SearchQuery}&rdquo;</h1><!-- .post_title -->
 {block:NoSearchResults}
 <p>No search results found for &ldquo;{SearchQuery}&rdquo;. Try searching again using the form below.</p><form action="/search" method="get"><input type="text" name="q" value="{SearchQuery}" class="searchform"><input type="submit" value="Search" style="margin-left: 5px;"></form>
 {/block:NoSearchResults}
@@ -373,29 +373,29 @@ div.npf_row {margin-left: -5px !important; margin-right: -5px !important;}
 {block:Text}
 <div class="post">
 {block:Title}
-<h1 class="post_title title_indent"><a href="{Permalink}">{Title}</a></h1>
+<h1 class="post_title title_indent"><a href="{Permalink}">{Title}</a></h1><!-- .post_title title_indent -->
 {/block:Title}
-<div class="caption_padding">{Body}</div>
+<div class="caption_padding">{Body}</div><!-- .caption_padding -->
 </div><!-- .post -->
 {/block:Text}
 
 <!-- PHOTO -->
 {block:Photo}
 <div class="post">
-<a class="photopost" href="{PhotoURL-HighRes}" data-fancybox="{PostID}"><img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" class="cover_photos" width="100%" height="auto"></a>
+<a href="{PhotoURL-HighRes}" data-fancybox="{PostID}"><img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" class="cover_photos" width="100%" height="auto"></a>
 {block:LinkURL}
-<p class="caption_padding" style="padding-top: 3px;"><a href="{LinkURL}" target="_blank">Find out more here &rarr;</a></p>
+<p class="caption_padding" style="padding-top: 3px;"><a href="{LinkURL}" target="_blank">Find out more here &rarr;</a></p><!-- .caption_padding -->
 {/block:LinkURL}
-<div class="clear"></div>
+<div class="clear"></div><!-- .clear -->
 
 <!-- CAPTION -->
 {block:IndexPage}
 {block:IfShowPhotoCaptionOnIndexPage}
-<div class="caption_padding">{block:Caption}{Caption}{/block:Caption}</div>
+<div class="caption_padding">{block:Caption}{Caption}{/block:Caption}</div><!-- .caption_padding -->
 {/block:IfShowPhotoCaptionOnIndexPage}
 {/block:IndexPage}
 {block:PermalinkPage}
-<div class="caption_padding">{block:Caption}{Caption}{/block:Caption}</div>
+<div class="caption_padding">{block:Caption}{Caption}{/block:Caption}</div><!-- .caption_padding -->
 {/block:PermalinkPage}
 </div><!-- .post -->
 {/block:Photo}
@@ -405,19 +405,19 @@ div.npf_row {margin-left: -5px !important; margin-right: -5px !important;}
 <div class="post">
 <div class="photo-slideshow" id="photoset_{PostID}" data-layout="{PhotosetLayout}" style="display: inline-block;">
 {block:Photos}
-<div class="photo-data"><div class="pxu-photo"><a class="photopost" data-fancybox="{PostID}" href="{PhotoURL-HighRes}"><img src="{PhotoURL-500}" alt="{PhotoAlt}" width="{PhotoWidth-500}" height="{PhotoHeight-500}" data-highres="{PhotoURL-HighRes}" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}"></a></div><!-- .pxu-photo --></div><!-- .photo-data -->
+<div class="photo-data"><div class="pxu-photo"><a data-fancybox="{PostID}" href="{PhotoURL-HighRes}"><img src="{PhotoURL-500}" alt="{PhotoAlt}" width="{PhotoWidth-500}" height="{PhotoHeight-500}" data-highres="{PhotoURL-HighRes}" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}"></a></div><!-- .pxu-photo --></div><!-- .photo-data -->
 {/block:Photos}
 </div><!-- .photo-slideshow -->
-<div class="clear"></div>
+<div class="clear"></div><!-- .clear -->
 
 <!-- CAPTION -->
 {block:IndexPage}
 {block:IfShowPhotoCaptionOnIndexPage}
-<div class="caption_padding">{block:Caption}{Caption}{/block:Caption}</div>
+<div class="caption_padding">{block:Caption}{Caption}{/block:Caption}</div><!-- .caption_padding -->
 {/block:IfShowPhotoCaptionOnIndexPage}
 {/block:IndexPage}
 {block:PermalinkPage}
-<div class="caption_padding">{block:Caption}{Caption}{/block:Caption}</div>
+<div class="caption_padding">{block:Caption}{Caption}{/block:Caption}</div><!-- .caption_padding -->
 {/block:PermalinkPage}
 </div><!-- .post -->
 {/block:Photoset}
@@ -425,22 +425,22 @@ div.npf_row {margin-left: -5px !important; margin-right: -5px !important;}
 <!-- QUOTE -->
 {block:Quote}
 <div class="post">
-<div class="caption_padding"><p><span class="quotation_mark">&ldquo;</span>{Quote}</p>{block:Source}&mdash;{Source}{/block:Source}</div><!-- .caption_padding -->
+<div class="caption_padding"><p><span class="quotation_mark">&ldquo;</span><!-- .quotation_mark -->{Quote}</p>{block:Source}&mdash;{Source}{/block:Source}</div><!-- .caption_padding -->
 </div><!-- .post -->
 {/block:Quote}
 
 <!-- LINK -->
 {block:Link}
 <div class="post">
-<h1 class="post_title title_indent"><a href="{URL}" {Target}>{Name} &#9658;</a></h1>
-<div class="caption_padding">{block:Description}{Description}{/block:Description}</div>
+<h1 class="post_title title_indent"><a href="{URL}" {Target}>{Name} &#9658;</a></h1><!-- .post_title title_indent -->
+<div class="caption_padding">{block:Description}{Description}{/block:Description}</div><!-- .caption_padding -->
 </div><!-- .post -->
 {/block:Link}
 
 <!-- AUDIO -->
 {block:Audio}
 <div class="post">
-<div>{block:AudioEmbed}{AudioEmbed}{/block:AudioEmbed}</div><div class="caption_padding">{block:Caption}{Caption}{/block:Caption}</div>
+<div>{block:AudioEmbed}{AudioEmbed}{/block:AudioEmbed}</div><div class="caption_padding">{block:Caption}{Caption}{/block:Caption}</div><!-- .caption_padding -->
 </div><!-- .post -->
 {/block:Audio}
 
@@ -448,9 +448,9 @@ div.npf_row {margin-left: -5px !important; margin-right: -5px !important;}
 {block:Chat}
 <div class="post">
 {block:Title}
-<h1 class="post_title title_indent"><a href="{Permalink}">{Title}</a></h1>
+<h1 class="post_title title_indent"><a href="{Permalink}">{Title}</a></h1><!-- .post_title title_indent -->
 {/block:Title}
-<div class="caption_padding"><ul>{block:Lines}<li>{block:Label}<strong>{Label}</strong>{/block:Label} {Line}</li>{/block:Lines}</ul></div>
+<div class="caption_padding"><ul>{block:Lines}<li>{block:Label}<strong>{Label}</strong>{/block:Label} {Line}</li>{/block:Lines}</ul></div><!-- .caption_padding -->
 </div><!-- .post -->
 {/block:Chat}
 
@@ -464,18 +464,18 @@ div.npf_row {margin-left: -5px !important; margin-right: -5px !important;}
 <!-- ANSWER -->
 {block:Answer}
 <div class="post">
-<div class="caption_padding"><p><strong>{Asker} Asked: </strong>{Question}</p><p>{Answer}</p></div>
+<div class="caption_padding"><p><strong>{Asker} Asked: </strong>{Question}</p><p>{Answer}</p></div><!-- .caption_padding -->
 </div><!-- .post -->
 {/block:Answer}
 
 <!-- SUBMISSION -->
 {block:Submission}
-<div class="post caption_padding">Submitted by <a href="{SubmitterURL}">{Submitter}</a></div>
+<div class="post caption_padding">Submitted by <a href="{SubmitterURL}">{Submitter}</a></div><!-- .post caption_padding -->
 {/block:Submission}
 
 <!-- LIKE AND REBLOG BUTTONS -->
 {block:IfShowLikeAndReblogButtons}
-<ul class="caption_padding" style="text-align: right;"><li style="margin-left: 10px; float: right;">{ReblogButton size="20" color="grey"}</li><li style="text-align: right;">{LikeButton size="20" color="grey"}</li></ul>
+<ul class="caption_padding" style="text-align: right;"><li style="margin-left: 10px; float: right;">{ReblogButton size="20" color="grey"}</li><li style="text-align: right;">{LikeButton size="20" color="grey"}</li></ul><!-- .caption_padding -->
 {/block:IfShowLikeAndReblogButtons}
 
 <!-- POST META -->
@@ -487,7 +487,7 @@ div.npf_row {margin-left: -5px !important; margin-right: -5px !important;}
 
 <!-- POST PAGINATION -->
 {block:PermalinkPagination}
-<div class="nav_posts">{block:NextPost}<div class="new"><a href="{NextPost}">Next Post</a></div><!-- .new -->{/block:NextPost}{block:PreviousPost}<div class="old"><a href="{PreviousPost}">Previous Post</a></div><!-- .old -->{/block:PreviousPost}</div><!-- .nav_posts --><div class="clear"></div>
+<div class="nav_posts">{block:NextPost}<div class="new"><a href="{NextPost}">Next Post</a></div><!-- .new -->{/block:NextPost}{block:PreviousPost}<div class="old"><a href="{PreviousPost}">Previous Post</a></div><!-- .old -->{/block:PreviousPost}</div><!-- .nav_posts --><div class="clear"></div><!-- .clear -->
 {/block:PermalinkPagination}
 
 <!-- NOTES -->
@@ -502,11 +502,11 @@ div.npf_row {margin-left: -5px !important; margin-right: -5px !important;}
 
 <!-- PAGE PAGINATION -->
 {block:Pagination}
-<div class="nav_posts">{block:PreviousPage}<a href="{PreviousPage}" class="old">Previous Page</a>{/block:PreviousPage}{block:NextPage}<a href="{NextPage}" class="new">Next Page</a>{/block:NextPage}</div><!-- .nav_posts --><div class="clear"></div>
+<div class="nav_posts">{block:PreviousPage}<a href="{PreviousPage}" class="old">Previous Page</a><!-- .old -->{/block:PreviousPage}{block:NextPage}<a href="{NextPage}" class="new">Next Page</a><!-- .new -->{/block:NextPage}</div><!-- .nav_posts --><div class="clear"></div><!-- .clear -->
 {/block:Pagination}
 
 <!-- FOOTER -->
-<div class="footer"><span>© {CopyrightYears} <a href="/">{Title}</a> &bull; <a href="/archive">Archive</a> &bull; <a href="https://www.tumblr.com/theme/40926/">Eternity theme (1.41)</a> by <a href="http://lastlights.net/">LASTLIGHTS.NET</a> &bull; Powered by <a href="https://www.tumblr.com">Tumblr</a></span></div><!-- .footer -->
+<div class="footer"><span>© {CopyrightYears} <a href="/">{Title}</a> &bull; <a href="/archive">Archive</a> &bull; <a href="https://www.tumblr.com/theme/40926/">Eternity theme (1.42)</a> by <a href="http://lastlights.net/">LASTLIGHTS.NET</a> &bull; Powered by <a href="https://www.tumblr.com">Tumblr</a></span></div><!-- .footer -->
 </div><!-- #container -->
 </body>
 </html>
