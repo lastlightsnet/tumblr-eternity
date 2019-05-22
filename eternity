@@ -3,7 +3,7 @@ Theme Name: Eternity
 Author: Joey J
 Author URI: http://lastlights.net/
 Description: Eternity is a single column, clean and minimal, Retina display ready, responsive Tumblr theme elegantly handcrafted for photographers and artists showcasing their best work.
-Version: 1.42
+Version: 1.43
 Credits: jQuery (MIT license), fancyBox (GPLv3 license, open-sourced on GitHub @lastlightsnet), PXU Photoset Extended (MIT license), Zack Sultan for media resizing scripts, Font Awesome (SIL open font license), Google Fonts (SIL open font license)
 -->
 <html>
@@ -506,7 +506,7 @@ div.npf_row {margin-left: -5px !important; margin-right: -5px !important;}
 {/block:Pagination}
 
 <!-- FOOTER -->
-<div class="footer"><span>© {CopyrightYears} <a href="/">{Title}</a> &bull; <a href="/archive">Archive</a> &bull; <a href="https://www.tumblr.com/theme/40926/">Eternity theme (1.42)</a> by <a href="http://lastlights.net/">LASTLIGHTS.NET</a> &bull; Powered by <a href="https://www.tumblr.com">Tumblr</a></span></div><!-- .footer -->
+<div class="footer"><span>© {CopyrightYears} <a href="/">{Title}</a> &bull; <a href="/archive">Archive</a> &bull; <a href="https://www.tumblr.com/theme/40926/">Eternity theme (1.43)</a> by <a href="http://lastlights.net/">LASTLIGHTS.NET</a> &bull; <a href="http://lastlights.net/theme-support/">Theme Support</a> &bull; Powered by <a href="https://www.tumblr.com">Tumblr</a></span></div><!-- .footer -->
 </div><!-- #container -->
 </body>
 </html>
