@@ -3,7 +3,7 @@ Theme Name: Eternity
 Author: Joey J
 Author URI: http://lastlights.net/
 Description: Eternity is a single column, clean and minimal, Retina display ready, responsive Tumblr theme elegantly handcrafted for photographers and artists showcasing their best work.
-Version: 1.43
+Version: 1.44
 Credits: jQuery (MIT license), fancyBox (GPLv3 license, open-sourced on GitHub @lastlightsnet), PXU Photoset Extended (MIT license), Zack Sultan for media resizing scripts, Font Awesome (SIL open font license), Google Fonts (SIL open font license)
 -->
 <html>
@@ -171,6 +171,8 @@ img {border: none; height: auto; max-width: 100%;}
 /* HEADER */
 .header {margin-top: 30px; text-align: center;}
 
+.logo {border-radius: 50%; height: 96px; width: 96px;}
+
 .blog_title {font-family: {font:Blog title font}; font-size: {select:Title size}; letter-spacing: 0.2em; line-height: 140%; padding-left: 5px; padding-right: 5px;}
 
 .blog_title a {color: {color:Title};}
@@ -212,10 +214,6 @@ h1.post_title:before {background-color: #00a8ff; border-radius: 30px; box-shadow
 h1.post_title:after {background-color: #7cc576; border-radius: 30px; box-shadow: 0 0 2px 2px rgba(255,255,255,0.2) inset; content: ''; display: block; height: 15px; left: 0px; position: absolute; top: 2px; width: 15px; -moz-border-radius: 30px; -webkit-border-radius: 30px;}
 
 .post {font-family: {font:Main body font}; font-size: {select:Main body font size}; line-height: 170%; letter-spacing: 0.01em; padding: 20px 0px 5px 0px; word-wrap: break-word;}
-
-.cover_photos {border: 2px solid #fff; outline: 1px solid #ddd;}
-
-.cover_photos:hover {border: 2px solid #fff; outline: 1px solid #bbb;}
 
 .caption_padding a, .caption_padding a:hover {font-weight: bold;}
 
@@ -308,8 +306,6 @@ div.npf_row {margin-left: 0 !important; margin-right: 0 !important; max-height: 
 @media screen and (max-width:700px) {
 html, body {overflow-x: hidden !important; width: auto !important;}
 
-.cover_photos, .cover_photos:hover {border: none; outline: none;}
-
 .mobile_only {display: block;}
 
 .post_meta, .caption_padding {padding-left: 5px; padding-right: 5px;}
@@ -334,7 +330,7 @@ div.npf_row {margin-left: -5px !important; margin-right: -5px !important;}
 <!-- LOGO -->
 <div class="header">
 {block:ShowAvatar}
-<div><a href="/"><img src="{PortraitURL-128}" alt="{Title}" title="{Title}" style="border-radius: 50%; height: 96px; width: 96px;"></a></div>
+<div><a href="/"><img src="{PortraitURL-128}" alt="{Title}" class="logo" title="{Title}"></a></div>
 {/block:ShowAvatar}
 
 <!-- TITLE -->
@@ -382,7 +378,7 @@ div.npf_row {margin-left: -5px !important; margin-right: -5px !important;}
 <!-- PHOTO -->
 {block:Photo}
 <div class="post">
-<a href="{PhotoURL-HighRes}" data-fancybox="{PostID}"><img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" class="cover_photos" width="100%" height="auto"></a>
+<a href="{PhotoURL-HighRes}" data-fancybox="{PostID}"><img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" width="100%" height="auto"></a>
 {block:LinkURL}
 <p class="caption_padding" style="padding-top: 3px;"><a href="{LinkURL}" target="_blank">Find out more here &rarr;</a></p><!-- .caption_padding -->
 {/block:LinkURL}
@@ -470,7 +466,7 @@ div.npf_row {margin-left: -5px !important; margin-right: -5px !important;}
 
 <!-- SUBMISSION -->
 {block:Submission}
-<div class="post caption_padding">Submitted by <a href="{SubmitterURL}">{Submitter}</a></div><!-- .post caption_padding -->
+<div class="post caption_padding" style="padding-top: 0 !important;">Submitted by <a href="{SubmitterURL}">{Submitter}</a></div><!-- .post caption_padding -->
 {/block:Submission}
 
 <!-- LIKE AND REBLOG BUTTONS -->
@@ -506,7 +502,7 @@ div.npf_row {margin-left: -5px !important; margin-right: -5px !important;}
 {/block:Pagination}
 
 <!-- FOOTER -->
-<div class="footer"><span>© {CopyrightYears} <a href="/">{Title}</a> &bull; <a href="/archive">Archive</a> &bull; <a href="https://www.tumblr.com/theme/40926/">Eternity theme (1.43)</a> by <a href="http://lastlights.net/">LASTLIGHTS.NET</a> &bull; <a href="http://lastlights.net/theme-support/">Theme Support</a> &bull; Powered by <a href="https://www.tumblr.com">Tumblr</a></span></div><!-- .footer -->
+<div class="footer"><span>© {CopyrightYears} <a href="/">{Title}</a> &bull; <a href="/archive">Archive</a> &bull; <a href="https://www.tumblr.com/theme/40926/">Eternity theme (1.44)</a> by <a href="http://lastlights.net/">LASTLIGHTS.NET</a> &bull; Powered by <a href="https://www.tumblr.com">Tumblr</a></span></div><!-- .footer -->
 </div><!-- #container -->
 </body>
 </html>
